@@ -1,8 +1,6 @@
 <template>
   <button class="g-button" :class="{[`icon${iconPosition}`]:true}">
-    <svg class="icon" aria-hidden="true" v-if="iconName">
-      <use :xlink:href="`#i${iconName}`"></use>
-    </svg>
+    <g-icon :name="iconName" v-if="iconName"></g-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -33,8 +31,8 @@
       outline: none;
     }
 
-    > .icon {
-      margin-right: .1em;
+    > .g-icon {
+      margin-right: .3em;
       order: 1;
     }
 
@@ -43,8 +41,8 @@
     }
 
     &.iconRight {
-      > .icon {
-        margin-left: .1em;
+      > .g-icon {
+        margin-left: .3em;
         margin-right:0;
         order: 2;
       }
@@ -58,7 +56,9 @@
 
 
 <script>
+  import Icon from "./icon";
   export default {
+    components: {Icon},
     // props: ['iconName', 'iconPosition']
     props:{
       iconName:{},
