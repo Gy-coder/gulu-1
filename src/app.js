@@ -10,8 +10,8 @@ new Vue({
   template: `
   <div id="app">
     <g-button>按钮</g-button>
-    <g-button icon-name="play" icon-position="Right">按钮</g-button>
-    <g-button icon-name="play">按钮</g-button>
+    <g-button icon-name="setting" icon-position="Right">按钮</g-button>
+    <g-button icon-name="setting">按钮</g-button>
    </div>
   `
 })
