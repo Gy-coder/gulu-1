@@ -1,6 +1,6 @@
 <template>
   <button class="g-button" :class="{[`icon${iconPosition}`]:true}">
-    <g-icon :name="iconName" v-if="iconName"></g-icon>
+    <g-icon class="icon" :name="iconName" v-if="iconName"></g-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -31,7 +31,7 @@
       outline: none;
     }
 
-    > .g-icon {
+    > .icon {
       margin-right: .3em;
       order: 1;
     }
@@ -41,7 +41,7 @@
     }
 
     &.iconRight {
-      > .g-icon {
+      > .icon {
         margin-left: .3em;
         margin-right:0;
         order: 2;
@@ -56,9 +56,7 @@
 
 
 <script>
-  import Icon from "./icon";
   export default {
-    components: {Icon},
     // props: ['iconName', 'iconPosition']
     props:{
       iconName:{},
