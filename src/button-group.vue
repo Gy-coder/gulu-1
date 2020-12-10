@@ -5,7 +5,18 @@
 </template>
 
 <script>
-  export  default  {}
+  export  default  {
+    mounted() {
+      const nodes = this.$el.children
+      for(let i=0;i<nodes.length;i++){
+        const node = nodes[i]
+        const name = node.nodeName.toLowerCase()
+        if(name !== 'button'){
+          console.warn(`g-button-group内必须都是g-button,但你写了个${name}`)
+        }
+      }
+    }
+  }
 </script>
 
 

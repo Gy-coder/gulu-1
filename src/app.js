@@ -19,6 +19,7 @@ new Vue({
       <g-button>更多</g-button>
       <g-button icon-name="right">下一页</g-button>
     </g-button-group>
+    
    </div>
   `,
   data(){
