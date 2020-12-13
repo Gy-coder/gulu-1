@@ -19,7 +19,7 @@ new Vue({
       <g-button>更多</g-button>
       <g-button icon-name="right">下一页</g-button>
     </g-button-group>
-    
+    <div id="test"></div>
    </div>
   `,
   data(){
@@ -29,8 +29,62 @@ new Vue({
   },
   methods:{
     x(){
-      console.log(this.loading1)
       this.loading1 = !this.loading1
     }
   }
 })
+
+
+// 单元测试
+
+import chai from 'chai'
+
+const  expect = chai.expect;
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      iconName:'setting'
+    }
+  })
+  vm.$mount('#test')
+  let useElement = vm.$el.querySelector('use')
+  console.log(vm.$el);
+  let href = useElement.getAttribute('xlink:href')
+  expect(href).to.eq('#i-setting')
+  vm.$el.remove()
+  vm.$destroy()
+}
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      iconName:'setting',
+      loading:true
+    }
+  })
+  vm.$mount()
+  let useElement = vm.$el.querySelector('use')
+  console.log(vm.$el);
+  let href = useElement.getAttribute('xlink:href')
+  expect(href).to.eq('#i-loading')
+  vm.$el.remove()
+  vm.$destroy()
+}
+{
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData: {
+      iconName: 'setting',
+      iconPosition:'Right'
+    }
+  })
+  vm.$mount(div)
+  let svg = vm.$el.querySelector('svg')
+  let {order} = window.getComputedStyle(svg)
+  expect(order).to.eq('2')
+  vm.$el.remove()
+  vm.$destroy()
+}
