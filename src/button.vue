@@ -64,9 +64,7 @@
 
 
 <script>
-  // console.log(iconName && !loading);
   export default {
-    // props: ['iconName', 'iconPosition']
     props:{
       iconName:{},
       loading:{
