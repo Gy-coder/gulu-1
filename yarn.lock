@@ -3051,6 +3051,11 @@
   dependencies:
     "assert-plus" "^1.0.0"
 
+"git-open@^2.1.0":
+  "integrity" "sha1-+AYfTdaaUSS12ydjdQEyYl8aMlY="
+  "resolved" "https://registry.npm.taobao.org/git-open/download/git-open-2.1.0.tgz"
+  "version" "2.1.0"
+
 "glob-parent@^3.1.0":
   "integrity" "sha1-nmr2KZ2NO9K9QEMIMr0RPfkGxa4="
   "resolved" "https://registry.npm.taobao.org/glob-parent/download/glob-parent-3.1.0.tgz"

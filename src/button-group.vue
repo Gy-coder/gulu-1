@@ -6,6 +6,7 @@
 
 <script>
   export  default  {
+    name:'gButtonGroup',
     mounted() {
       const nodes = this.$el.children
       for(let i=0;i<nodes.length;i++){

@@ -12,12 +12,12 @@ new Vue({
   template: `
   <div id="app">
     <g-button @click="x" :loading="loading1">按钮</g-button>
-    <g-button icon-name="setting" icon-position="Right" :loading="loading1">按钮</g-button>
-    <g-button icon-name="setting" :loading="loading1">按钮</g-button>
+    <g-button icon="settings" :loading="loading1" icon-position="right">按钮</g-button>
+    <g-button icon="settings" :loading="loading1">按钮</g-button>
     <g-button-group>
-      <g-button icon-name="left">上一页</g-button>
+      <g-button icon="left">上一页</g-button>
       <g-button>更多</g-button>
-      <g-button icon-name="right">下一页</g-button>
+      <g-button icon="right">下一页</g-button>
     </g-button-group>
     <div id="test"></div>
    </div>
@@ -37,6 +37,7 @@ new Vue({
 
 // 单元测试
 
+
 import chai from 'chai'
 import spies from 'chai-spies'
 
@@ -47,14 +48,13 @@ chai.use(spies)
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
     propsData:{
-      iconName:'setting'
+      icon:'settings'
     }
   })
   vm.$mount('#test')
   let useElement = vm.$el.querySelector('use')
-  console.log(vm.$el);
   let href = useElement.getAttribute('xlink:href')
-  expect(href).to.eq('#i-setting')
+  expect(href).to.eq('#i-settings')
   vm.$el.remove()
   vm.$destroy()
 }
@@ -62,13 +62,12 @@ chai.use(spies)
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
     propsData:{
-      iconName:'setting',
+      icon:'settings',
       loading:true
     }
   })
   vm.$mount()
   let useElement = vm.$el.querySelector('use')
-  console.log(vm.$el);
   let href = useElement.getAttribute('xlink:href')
   expect(href).to.eq('#i-loading')
   vm.$el.remove()
@@ -80,8 +79,8 @@ chai.use(spies)
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
     propsData: {
-      iconName: 'setting',
-      iconPosition:'Right'
+      icon: 'settings',
+      iconPosition:'right'
     }
   })
   vm.$mount(div)
@@ -97,7 +96,7 @@ chai.use(spies)
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
     propsData: {
-      iconName: 'setting',
+      icon: 'settings',
     }
   })
   vm.$mount()

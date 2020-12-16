@@ -13,21 +13,19 @@ describe('Button', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        iconName:'setting'
+        icon: 'settings'
       }
     }).$mount()
-    console.log(vm.$el);
-    const useElement = vm.$el.querySelector('g-icon')
+    const useElement = vm.$el.querySelector('use')
     console.log(useElement);
-    let href = useElement.getAttribute('name')
-    expect(href).to.eq('setting')
+    expect(useElement.getAttribute('xlink:href')).to.equal('#i-settings')
     vm.$destroy()
   })
   it('可以设置loading.', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'setting',
+        icon: 'settings',
         loading: true
       }
     }).$mount()
@@ -77,6 +75,5 @@ describe('Button', () => {
     vm.$on('click', callback)
     vm.$el.click()
     expect(callback).to.have.been.called
-
   })
 })

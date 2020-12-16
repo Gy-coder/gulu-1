@@ -1,12 +1,36 @@
 # 咕噜 一个Vue轮子
 
-## 开始使用
+## 介绍
 
-1. 安装
+这是我学习vue时做的一个UI框架
+
+## 开始使用
+1. 添加css样式
+
 
 ```css
 *{box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
 ```
+IE8以上浏览器支持这个框架
+
+你还需要设置css变量
+
+```css
+html {
+      --button-height: 32px;
+      --button-font-size: 16px;
+      --button-bg: white;
+      --button-active-bg: #eee;
+      --border-radius: 4px;
+      --color: #999;
+      --border-color: #999;
+      --border-color-hover: #666;
+    }
+```
+
+2. 安装
 
 ## 文档
 
