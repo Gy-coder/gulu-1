@@ -30,12 +30,16 @@ new Vue({
         <g-input value="g-input" disabled></g-input>
         <g-input value="g-input" readonly></g-input>
         <g-input value="g-input" error="密码错误"></g-input>
+        <p>双向绑定</p>
+        <g-input v-model="message"></g-input>
+        <p>{{message}}</p>
       </div>
     </div>
   `,
   data() {
     return {
-      loading1: false
+      loading1: false,
+      message:'hi'
     }
   },
   methods: {
