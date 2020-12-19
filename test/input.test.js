@@ -63,45 +63,17 @@ describe('Input', () => {
     afterEach(() => {
       vm.$destroy()
     })
-    it('支持change', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      // 如何测试change事件以及第一个参数
-      vm.$on('change',callback)
-      let event = new Event('change')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event)
-    })
-    it('支持input', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      // 如何测试change事件以及第一个参数
-      vm.$on('input',callback)
-      let event = new Event('input')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event)
-    })
-    it('支持focus', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      // 如何测试change事件以及第一个参数
-      vm.$on('focus',callback)
-      let event = new Event('focus')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event)
-    })
-    it('支持blur', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      // 如何测试change事件以及第一个参数
-      vm.$on('blur',callback)
-      let event = new Event('blur')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event)
+    it('支持change/input/focus/blur事件', () => {
+      ['change','input','focus','blur'].forEach(eventName =>{
+        vm = new Constructor({}).$mount()
+        const callback = sinon.fake()
+        // 如何测试change事件以及第一个参数
+        vm.$on(eventName,callback)
+        let event = new Event(eventName)
+        let inputElement = vm.$el.querySelector('input')
+        inputElement.dispatchEvent(event)
+        expect(callback).to.have.been.calledWith(event)
+      })
     })
   })
 })
