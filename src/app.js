@@ -3,12 +3,15 @@ import Button from './button'
 import Icon from './icon'
 import ButtonGroup from './button-group'
 import Input from './input'
+import Toast from './toast'
+import plugin from "./plugin";
 
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
 Vue.component('g-button-group', ButtonGroup)
 Vue.component('g-input', Input)
-
+Vue.component('g-toast', Toast)
+Vue.use(plugin)
 
 new Vue({
   el: '#app',
@@ -34,19 +37,25 @@ new Vue({
         <g-input v-model="message"></g-input>
         <p>{{message}}</p>
       </div>
+      <div class="box">
+        <g-button @click="showToast">点我</g-button>
+      </div>
     </div>
   `,
   data() {
     return {
-      loading1: false,
-      message:'hi'
+      loading1: true,
+      message: 'hi'
     }
   },
   methods: {
-    x(e) {
-      console.log(1)
+    x(e){
+      console.log(e)
+    },
+    showToast(){
+      this.$toast('这是toast')
     }
-  }
+  },
 })
 
 
